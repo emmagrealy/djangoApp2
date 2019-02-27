@@ -89,12 +89,22 @@
       <p>
         <h3 style="text-align:center;">If you wish to sign up, click below!</h3>
         <a href="{% url 'home:signUpForm' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign Up!</a>
-    </div>
+        
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+              {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    
+      </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-  <p></p>
+  <p>
+  </p>
 </footer>
 
 </body>

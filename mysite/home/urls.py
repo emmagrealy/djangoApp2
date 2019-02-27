@@ -11,5 +11,8 @@ urlpatterns = [
     path('signUpForm/', views.signUpForm, name='signUpForm'),
     
     #sign up form leads here
-    path('signUp/', views.signUp, name='signUp')
+    path('signUp/', views.signUp, name='signUp'),
+
+    #profile
+    path('profile/', views.profile, name='profile'),
 ]

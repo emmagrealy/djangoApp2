@@ -73,7 +73,7 @@
       <hr>
       <h3 style="text-align:center;">Please Login below</h3>
       <p> 
-        <form action="{% url 'home:login' %}" method="post" style="text-align:center;">
+        <form action="{% url 'home:signIn' %}" method="post" style="text-align:center;">
           {% csrf_token %}
           Username:<br>
           <input type="text" name="Username">

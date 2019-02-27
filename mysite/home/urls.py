@@ -5,7 +5,7 @@ app_name = 'home'
 urlpatterns = [
     path('', views.index, name='index'),
     # log in success leads to this page
-    path('login/', views.login, name='login'),
+    path('signIn/', views.signIn, name='signIn'),
 
     #sign up button leads here
     path('signUpForm/', views.signUpForm, name='signUpForm'),

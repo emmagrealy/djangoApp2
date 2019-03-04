@@ -60,8 +60,8 @@ def makePost(request):
 
 def postFeed(request):
 
-    latest_post_list = Post.objects.order_by('-pub_date')[:5]
-  
+    latest_post_list = Post.objects.order_by('id')
+
     context = {
         'latest_post_list': latest_post_list,
     }

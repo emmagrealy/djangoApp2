@@ -69,14 +69,28 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Login Success </h1>
+        <h1> Post Feed</h1>
     <p>
-        <h3>{{ user.username }} : View Posts Below </h3>
+        <h4>{{ user.username }}, these are some recent posts </h4>
+        
     </p>
-    {% for post in latest_post_list %}
-    <li><a href="{% url 'polls:detail' post.id %}">{{ post.title }} 
-      <br>
-       {{ post.description }}</a></li>
+    <a href="{% url 'home:postFeed'%}"></a>
+    <a href="{% url 'home:postFeed'%}"></a>
+    <p>
+        <table class="table table-bordered table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for post in latest_post_list %}
+              <tr>
+                <td>{{ post.title }} </td>
+                <td>{{ post.description }}</td>
+              </tr>
+    </p>
     {% endfor %}
 
     <p>

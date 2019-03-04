@@ -71,7 +71,25 @@
     <div class="col-sm-8 text-left"> 
       <h1>Login Success </h1>
     <p>
-        <h3>Welcome {{ user.username }} </h3>
+        <h3>Welcome: {{ user.username }} </h3>
+    </p>
+    <p>
+      {% block content %}
+      <form action="{% url 'home:makePost' %}" method="post" style="text-align:center;">
+        <h2>New post</h2>
+        {% csrf_token %}
+        Post Title:<br>
+        <input type="text" name="title">
+        <br>
+        Post Description:<br>
+        <input type="text" name="description">
+        <br>
+        <input type="submit" value="Post!">
+      </form>  
+      {% endblock %}
+    </p>
+    <p>
+      
 
     </p>
     </div>

@@ -15,4 +15,8 @@ urlpatterns = [
 
     #profile
     path('profile/', views.profile, name='profile'),
+
+    #post to profile
+    path('profile/', views.makePost, name='makePost'),
+   
 ]

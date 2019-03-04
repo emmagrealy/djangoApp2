@@ -1,9 +1,7 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home Page</title>
+  <title>Login Success</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -43,7 +41,7 @@
     }
   </style>
 </head>
-<body style = "background-color:white">
+<body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -71,42 +69,22 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1 style="text-align:center;">Welcome</h1>
-      <hr>
-      <h3 style="text-align:center;">Please Login below</h3>
-      <p> 
-        <form action="{% url 'home:signIn' %}" method="post" style="text-align:center;">
-          {% csrf_token %}
-          Username:<br>
-          <input type="text" name="Username">
-          <br>
-          Password:<br>
-          <input type="text" name="Password">
-          <br><br>
-          <input type="submit" value="Submit">
-        </form>  
-      </p>
+      <h1>Login Success </h1>
+    <p>
+        <h3>{{ user.username }} : View Posts Below </h3>
+    </p>
+    <p>
+      
 
+    <p>
+      
 
-      <p>
-        <h3 style="text-align:center;">If you wish to sign up, click below!</h3>
-        <a href="{% url 'home:signUpForm' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign Up!</a>
-        
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-info" role="alert">
-              {{ message }}
-            </div>
-            {% endfor %}
-        {% endif %}
-    
-      </div>
+    </p>
+    </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-  <p>
-  </p>
 </footer>
 
 </body>

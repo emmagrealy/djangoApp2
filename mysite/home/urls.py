@@ -18,5 +18,11 @@ urlpatterns = [
 
     #post to profile
     path('profile/', views.makePost, name='makePost'),
-   
+
+    #make a post
+    path('makePost/', views.makePost, name='makePost'),
+
+    #post feed
+    path('postFeed/', views.postFeed, name='postFeed'),
+
 ]

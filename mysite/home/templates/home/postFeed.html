@@ -73,7 +73,11 @@
     <p>
         <h3>{{ user.username }} : View Posts Below </h3>
     </p>
-    
+    {% for post in latest_post_list %}
+    <li><a href="{% url 'polls:detail' post.id %}">{{ post.title }} 
+      <br>
+       {{ post.description }}</a></li>
+    {% endfor %}
 
     <p>
       

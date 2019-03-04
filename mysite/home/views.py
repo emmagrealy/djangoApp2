@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User  
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from django.shortcuts import redirect , reverse
+from django.shortcuts import redirect, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from .models import Post
 
 #index
 def index(request):
@@ -21,7 +22,7 @@ def signIn(request):
         return HttpResponseRedirect(reverse('home:profile'))
     else:
         messages.add_message(request, messages.INFO, 'Invalid LogIn Details!')
-        return HttpResponseRedirect(reverse ('home:index'))
+        return HttpResponseRedirect(reverse('home:index'))
 
 #sign up form  
 def signUpForm(request):
@@ -49,13 +50,19 @@ def profile(request):
 
 #make post
 def makePost(request):
-    if request.method == "POST":
-        form = makePost(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('post_detail')
-    else:
-        form = makePost(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    print(request.POST)
+    title = request.POST.get("Title")
+    description = request.POST.get("Description")
+    post = Post.objects.create(title=title, description=description)
+    post.save()
+    return HttpResponseRedirect(reverse('home:postFeed'))
+
+
+def postFeed(request):
+
+    latest_post_list = Post.objects.order_by('-pub_date')[:5]
+  
+    context = {
+        'latest_post_list': latest_post_list,
+    }
+    return render(request, 'home/postFeed.html', context)

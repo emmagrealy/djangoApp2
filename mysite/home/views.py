@@ -5,8 +5,6 @@ from django.http import HttpResponse
 from django.shortcuts import redirect , reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django import forms
-
 
 #index
 def index(request):
@@ -20,10 +18,10 @@ def signIn(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('home/profile.html'))
+        return HttpResponseRedirect(reverse('home:profile'))
     else:
         messages.add_message(request, messages.INFO, 'Invalid LogIn Details!')
-        return HttpResponseRedirect(reverse, 'home/index.html')
+        return HttpResponseRedirect(reverse ('home:index'))
 
 #sign up form  
 def signUpForm(request):
@@ -39,7 +37,7 @@ def signUp(request):
     if user is not None:
         login(request, user)
     else:
-          user = User.objects.create_user(username, password, email)
+          user = User.objects.create_user(username, email, password)
           user.save()
           login(request, user)
 
@@ -51,9 +49,8 @@ def profile(request):
 
 #make post
 def makePost(request):
-   def makePost(request):
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = makePost(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user

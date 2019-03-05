@@ -6,6 +6,8 @@ from django.shortcuts import redirect, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
+from django.contrib.auth import logout
+from django.template import loader
 
 #index
 def index(request):
@@ -53,6 +55,7 @@ def makePost(request):
     print(request.POST)
     title = request.POST.get("Title")
     description = request.POST.get("Description")
+    template = loader.get_template('home/profile.html')
     post = Post.objects.create(title=title, description=description)
     post.save()
     return HttpResponseRedirect(reverse('home:postFeed'))
@@ -66,3 +69,12 @@ def postFeed(request):
         'latest_post_list': latest_post_list,
     }
     return render(request, 'home/postFeed.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home:index'))
+
+def specificPost(request):
+    print(request.POST)
+    return HttpResponseRedirect(reverse('home:specificPost'))

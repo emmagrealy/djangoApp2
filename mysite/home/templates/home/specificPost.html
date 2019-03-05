@@ -58,7 +58,7 @@
         <li class="active"><a href="#">Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'home:logout_view' %}"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
   </div>
@@ -69,33 +69,32 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Login Success </h1>
+        <h1> Post Feed</h1>
     <p>
-        <h3>Welcome: {{ user.username }} </h3>
+        <h4>{{ user.username }}, these are some recent posts </h4>
+        
     </p>
+    <a href="{% url 'home:postFeed'%}"></a>
+    <a href="{% url 'home:postFeed'%}"></a>
     <p>
-      {% block content %}
-      <form action="{% url 'home:makePost' %}" method="post" style="text-align:center;">
-        <h2>New post</h2>
-        <br>
-        {% csrf_token %}
-        Post Title:<br>
-        <input type="text" name="Title">
-        <br>
-        <br>
-        Post Description:<br>
-        <input type="text" name="Description">
-        <br>
-        <br>
-        Image: <br>
-        <input type = "image" name="Image">
-        <br>
-        <br>
-        <br>
-        <input type="submit" value="Post!">
-      </form>  
-      {% endblock %}
+        <table class="table table-sm table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ post.title }} </td>
+                <td>{{ post.description }}</td>
+                <td> <a href="{% url 'home:specificPost' post.title %}"> View Post </a></td>
+              </tr>
     </p>
+
+    <p>
+      
+
     <p>
       
 

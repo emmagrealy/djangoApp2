@@ -25,4 +25,10 @@ urlpatterns = [
     #post feed
     path('postFeed/', views.postFeed, name='postFeed'),
 
+    #logout
+    path('logout_view/', views.logout_view, name='logout_view'),
+
+    #specific post
+    path('specificPost/', views.specificPost, name='specificPost'),
+
 ]

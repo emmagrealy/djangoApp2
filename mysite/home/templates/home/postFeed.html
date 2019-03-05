@@ -89,6 +89,10 @@
               <tr>
                 <td>{{ post.title }} </td>
                 <td>{{ post.description }}</td>
+                <td> <a href="{% url 'home:specificPost' post.id %}"> 
+                  <div style= "height:100%;width:100%" >
+                  View Post
+                  </div> </a></td>
               </tr>
     </p>
     {% endfor %}

@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'home/media')
+
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'polls.apps.PollsConfig',

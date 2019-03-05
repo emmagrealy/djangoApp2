@@ -55,7 +55,6 @@ def makePost(request):
     print(request.POST)
     title = request.POST.get("Title")
     description = request.POST.get("Description")
-    template = loader.get_template('home/profile.html')
     myfile = request.FILES['Image']
     post = Post.objects.create(title=title, description=description)
     post.save()

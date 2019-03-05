@@ -75,6 +75,6 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('home:index'))
 
-def specificPost(request):
+def viewPost(request):
     print(request.POST)
-    return HttpResponseRedirect(reverse('home:specificPost'))
+    return HttpResponseRedirect(reverse('home:viewPost'))

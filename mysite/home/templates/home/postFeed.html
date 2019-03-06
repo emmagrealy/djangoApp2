@@ -89,8 +89,8 @@
               <tr>
                 <td>{{ post.title }} </td>
                 <td>{{ post.description }}</td>
-                <td><img src="{{ post.image }}"width="200" height="200"></td>
-                <td> <a href="{% url 'home:viewPost' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">View Post!</a></td>
+                <td><img src="{{ post.image.url }}"width="200" height="200"></td>
+                <td> <a href="{% url 'home:viewPost' post.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">View Post!</a></td>
               </tr>
     </p>
     {% endfor %}

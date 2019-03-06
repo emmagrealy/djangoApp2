@@ -31,6 +31,6 @@ urlpatterns = [
     path('logout_view/', views.logout_view, name='logout_view'),
 
     #specific post
-    path('viewPost/', views.viewPost, name='viewPost'),
+    path('viewPost/<pk>/', views.viewPost, name='viewPost'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

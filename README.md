@@ -17,7 +17,10 @@ change to mysite, then ``pipenv shell``
 
 - a new directory is a new folder!!
 
-TO DO LIST!!
-- ignore the picture part just be able to have a title and caption
-- be able to view an individual post
-- THEN focus on image
+- ``pipenv install Pillow`` for uploading image 
+
+- database info:
+    - ``py manage.py makemigrations``
+    - ``py manage.py migrate``
+
+- ``{{ user.username }}`` accesses the name of the user logged in

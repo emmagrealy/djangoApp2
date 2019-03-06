@@ -76,7 +76,7 @@ def logout_view(request):
     return HttpResponseRedirect(reverse('home:index'))
 
 def viewPost(request, pk):
-    post = post.objects.get(pk = pk)
-    contect = {'post':post}
+    post = Post.objects.get(pk = pk)
+    context = {'post':post}
     print(request.POST)
     return render(request, 'home/viewPost.html', context)

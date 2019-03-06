@@ -82,13 +82,14 @@
               <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
+                <th scope="col">Image</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{{ post.title }} </td>
                 <td>{{ post.description }}</td>
-                <td> <a href="{% url 'home:specificPost' post.title %}"> View Post </a></td>
+                <td><img src="{{ post.image }}"width="200" height="200"></td>
               </tr>
     </p>
 
